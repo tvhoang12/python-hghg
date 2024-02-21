@@ -1,19 +1,22 @@
-t = int(input())
-for k in range(t) :
-    n, m = [int(x) for x in input().split()]
-    a, b = [[0] * m] * n, []
-    for i in range(n) :
-        s = 0
-        a[i] = [int(x) for x in input().split()]
-    for i in range(len(a)) :
-        x = []
-        for j in range(len(a[i])):
-            x.append(a[j][i])
-        b.append(x)
-    for i in range(n) :
-        for j in range(n) :
-            s = 0
-            for z in range(m) :
-                s += a[i][z] * b[z][j]
-            print(s, end = ' ')
-        print()
+n = int(input())
+a =[]
+sumUp = 0
+sumDown = 0
+for i in range(n):
+    k = list(map(int, input().split()))
+    k.reverse()
+    a.append(k)
+
+for i in range(n):
+    for j in range(i + 1, n):
+        sumUp += a[i][j]
+        sumDown += a[j][i]
+
+cd = int(input())
+
+if abs(sumUp - sumDown) <= cd:
+    print("YES")
+else:
+    print("NO")
+
+print(abs(sumUp - sumDown))
