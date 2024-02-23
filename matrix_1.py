@@ -4,7 +4,7 @@ sumUp = 0
 sumDown = 0
 for i in range(n):
     k = list(map(int, input().split()))
-    k.reverse()
+    # k.reverse()
     a.append(k)
 
 for i in range(n):
